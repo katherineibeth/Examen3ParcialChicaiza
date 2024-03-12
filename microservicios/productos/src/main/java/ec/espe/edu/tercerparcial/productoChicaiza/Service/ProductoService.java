@@ -11,8 +11,16 @@ public class ProductoService {
     }
 
 
-    public ResponseEntity<String> prueba(){
+    public ResponseEntity<String> crear(){
         return this.productoRestService.crearproducto();
+    }
+
+    public ResponseEntity<String> modificar(){
+        return this.productoRestService.modificarProducto();
+    }
+
+    public ResponseEntity<String> obtener(){
+        return this.productoRestService.obtenerPorId();
     }
     
 }

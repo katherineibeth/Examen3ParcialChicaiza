@@ -9,16 +9,15 @@ public class ProductoRestService {
     }
     
     
-
     public ResponseEntity<String> obtenerPorId(String id) {
-        String url = UriComponentsBuilder.fromHttpUrl("http://localhost:8081/api/v1/empresas")
+        String url = UriComponentsBuilder.fromHttpUrl("http://localhost:8081/api/v1/producto")
                 .path("/{id}")
                 .buildAndExpand(id)
                 .toUriString();
         return restTemplate.getForEntity(url, String.class);
     }
 
-    public ResponseEntity<String> obtenerPorIdentificacion(String numeroIdentificacion) {
+    public ResponseEntity<String> crearproducto(String numeroIdentificacion) {
         String url = UriComponentsBuilder.fromHttpUrl("http://localhost:8081/api/v1/empresas")
                 .path("/ruc/{numeroIdentificacion}")
                 .buildAndExpand(numeroIdentificacion)
@@ -26,12 +25,14 @@ public class ProductoRestService {
         return restTemplate.getForEntity(url, String.class);
     }
 
-    public ResponseEntity<String> desactivar(String idCliente) {
+    public ResponseEntity<String> modificarProducto(String idProducto) {
         String url = UriComponentsBuilder.fromHttpUrl("http://localhost:8081/api/v1/empresas")
-                .path("/desactivar/{idCliente}")
-                .buildAndExpand(idCliente)
+                .path("/modificar/{idProducto}")
+                .buildAndExpand(idProducto)
                 .toUriString();
         restTemplate.put(url, null);
         return ResponseEntity.noContent().build();
     }
+
+
 }
